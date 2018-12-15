@@ -26,6 +26,7 @@ app.get('/api/json', function (req, res) {
 
 //Products
 app.get('/api/employee', db.getAllEmployees);
+app.get('/api/city', db.getCity);
 
 var port = process.env.PORT || 8080;
 app.listen(port, function () {

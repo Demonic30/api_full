@@ -17,9 +17,24 @@ function getAllEmployees(req, res) {
         })
 }
 
-
+function getCity(req, res) {
+    db.any('select COUNT(city),city from employees Group by city;')
+        .then(function (data) {
+            res.status(200)
+                .json({
+                    status: 'success',
+                    data: data,
+                    message: 'Retrieved ALL products'
+                });
+        })
+        .catch(function (error) {
+            res.status(500)
+            console.log('ERROR:', error)
+        })
+}
 
 module.exports = {
     getAllEmployees,
+    getCity
     
 };
